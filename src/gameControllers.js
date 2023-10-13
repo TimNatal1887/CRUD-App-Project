@@ -30,6 +30,13 @@ function create(games, gameName) {
     return games.map((game) => `ID: ${game.id} | Title: ${game.title} | Price: $${(game.priceInCents/100).toFixed(2)}`).join('\n');
   };
 
+  function show(games, gameId) {
+    const game = games.find((game) => game.id === gameId);
+    const platforms = game.platform.reduce((acc,platform) => game.platform.indexOf(platform) === game.platform.length - 1 ? acc+= `and ${platform}`:acc += `${platform}, `,'')
+    return `ID: ${game.id} | Title: ${game.title} | Price: $${(game.priceInCents/100).toFixed(2)}. Released on ${game.releaseYear}. Available on ${platforms}.`|| `Game with ID of ${gameID} could not be found.`
+  };
+
+  
   module.exports = {
     create,
     index,
