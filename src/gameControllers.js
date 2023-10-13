@@ -38,13 +38,25 @@ function create(games, gameName) {
 
 const inform = console.log;
 
+function destroy(games, gameId) {
+  const index = games.findIndex((game) => game.id === gameId);
+  if (index > -1) {
+    games.splice(index, 1);
+    inform('Game successfully removed from library.');
+    return games;
+  } else {
+    inform('Game could not be found. No action was taken');
+    return games;
+  };
+};
+
 function edit(games, gameId, updatedGame) {
     const index = games.findIndex((game) => game.id === gameId);
     if (index > -1) {
       games[index].title = updatedGame
       games[index].id = gameId;
       games[index].platform = games[index].platform
-      games[index].priceInCents = games[index].price
+      games[index].priceInCents = games[index].priceInCents
       games[index].rate = games[index].rate
       inform('Game successfully updated');
       return games;
@@ -54,7 +66,10 @@ function edit(games, gameId, updatedGame) {
     };
   };
 
-
+  function rate(animals) {
+    return animals.reduce((acc, current) => acc + current.points, 0);
+  };
+  
   module.exports = {
     create,
     index,

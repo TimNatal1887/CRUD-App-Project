@@ -33,7 +33,7 @@ function run() {
       writeToFile = true;
       break;
     case 'destroy':
-      updatedAnimals = destroy(games,game);
+      updatedGames = destroy(games,game);
       writeToFile = true;
       break;
     case 'rate':

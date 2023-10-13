@@ -1,6 +1,6 @@
 [
   {
-    "title": "Call of duty",
+    "title": "Call of Duty: Modern Warfare 3",
     "id": "4cxP",
     "platform": [
       "Xbox",
@@ -8,6 +8,7 @@
       "PC",
       "Nintendo Switch"
     ],
+    "priceInCents": 7000,
     "releaseYear": 2009,
     "reviewScore": 10
   },
@@ -20,18 +21,6 @@
     ],
     "priceInCents": 8900,
     "releaseYear": 2022,
-    "reviewScore": null
-  },
-  {
-    "title": "The Binding of Isaac",
-    "id": "T_4k",
-    "platform": [
-      "Xbox",
-      "PlayStation",
-      "PC"
-    ],
-    "priceInCents": 5000,
-    "releaseYear": 1990,
     "reviewScore": null
   }
 ]
