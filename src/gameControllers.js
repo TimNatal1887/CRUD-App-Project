@@ -84,7 +84,7 @@ function edit(games, gameId, updatedGame) {
     }
 }
 function cartList(cart){
-    return cart.map(game => `${game.title}, Price: ${(game.priceInCents/100).toFixed(2)}`)
+    return cart.map(game => `${game.title}, Price: $${(game.priceInCents/100).toFixed(2)}`).join('\n')
 }
 function add(games,gameId,cart){
     const gameFound = games.find(game=> game.id === gameId);
@@ -108,6 +108,17 @@ function remove(games,gameId,cart){
     return cart;
   };
 }
+
+function checkout(cart){
+    const thankYou = "Thank you for shoppiing with us! Here is your receipt \n------------------------\n"
+    const gameList = cartList(cart);
+    const totalPrice = ((cart.reduce((acc,game)=> {
+        acc += game.priceInCents
+        return acc
+    },0))/100).toFixed(2)
+    return thankYou + gameList + `\n------------------------\nTOTAL: $${totalPrice}`
+}
+
   
   module.exports = {
     create,
@@ -118,5 +129,6 @@ function remove(games,gameId,cart){
     rate,
     cartList,
     add,
-    remove
+    remove,
+    checkout
   };

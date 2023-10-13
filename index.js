@@ -1,7 +1,7 @@
 const { readJSONFile, writeJSONFile } = require('./src/helpers');
 const games = readJSONFile('./data', 'games.json');
 const cart = readJSONFile('./data', 'userCart.json')
-const {create,index,show,destroy,edit,rate,cartList,add,remove} = require('./src/gameControllers')
+const {create,index,show,destroy,edit,rate,cartList,add,remove,checkout} = require('./src/gameControllers')
 
 const inform = console.log;
 
@@ -54,6 +54,9 @@ function run() {
     case 'remove':
         updatedCart = remove(games,game,cart);
         changeCart = true;
+        break;
+    case 'checkout':
+        inform(checkout(cart));
         break;
     default:
       inform('There was an error.');
