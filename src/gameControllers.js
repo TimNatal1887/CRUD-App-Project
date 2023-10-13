@@ -4,7 +4,8 @@ const {alphanumeric} = require("nanoid-dictionary")
 
 const generatePlatforms = (platforms) => {
     let platformList = []
-    for(let i = 0; i < _.random(1,4);i++){
+    let count = _.random(1,4)
+    for(let i = 0; i < count;i++){
         const randomPlatform = platforms[_.random(0,3)]
         if(!platformList.includes(randomPlatform)){
             platformList.push(randomPlatform)
