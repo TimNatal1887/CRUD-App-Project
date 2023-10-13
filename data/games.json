@@ -1,37 +1,33 @@
 [
   {
-    "title": "Call of Duty: Modern Warfare 3",
-    "id": "4cxP",
-    "platform": [
-      "Xbox",
-      "Playstation",
-      "PC",
-      "Nintendo Switch"
-    ],
-    "priceInCents": 7000,
-    "releaseYear": 2009,
-    "reviewScore": 9
-  },
-  {
-    "title": "Garry's Mod",
-    "id": "pdv8",
+    "title": "Call of Duty",
+    "id": "BV6i",
     "platform": [
       "Xbox",
       "PlayStation"
     ],
-    "priceInCents": 8900,
-    "releaseYear": 2022,
+    "priceInCents": 9800,
+    "releaseYear": 2010,
     "reviewScore": null
   },
   {
-    "title": "Jak and Daxter: The Precursor Legacy",
-    "id": "MVFd",
+    "title": "Jak and Daxter",
+    "id": "-pQb",
     "platform": [
-      "Xbox",
-      "PlayStation"
+      "Xbox"
     ],
-    "priceInCents": 1000,
-    "releaseYear": 1994,
+    "priceInCents": 4000,
+    "releaseYear": 2008,
+    "reviewScore": null
+  },
+  {
+    "title": "Minecraft",
+    "id": "vznR",
+    "platform": [
+      "Xbox"
+    ],
+    "priceInCents": 7900,
+    "releaseYear": 2022,
     "reviewScore": null
   }
 ]

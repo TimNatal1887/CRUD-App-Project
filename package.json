@@ -10,7 +10,11 @@
     "show": "node index.js show",
     "update": "node index.js update",
     "destroy": "node index.js destroy",
-    "rate": "node index.js rate"
+    "rate": "node index.js rate",
+    "cart": "node index.js cart",
+    "add": "node index.js add",
+    "remove": "node index.js remove",
+    "checkout": "node index.js checkout"
   },
   "keywords": [],
   "author": "Timothy Natal",

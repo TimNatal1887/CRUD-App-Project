@@ -83,6 +83,31 @@ function edit(games, gameId, updatedGame) {
       return games
     }
 }
+function cartList(cart){
+    return cart.map(game => `${game.title}, Price: ${(game.priceInCents/100).toFixed(2)}`)
+}
+function add(games,gameId,cart){
+    const gameFound = games.find(game=> game.id === gameId);
+    if(!gameFound){
+      inform(`Game with ID of ${gameId} could not be found`)
+      return cart
+    }else{
+      cart.push(gameFound)
+      return cart
+    };
+};
+
+function remove(games,gameId,cart){
+  const index = games.findIndex((game) => game.id === gameId);
+  if (index > -1) {
+    cart.splice(index, 1);
+    inform('Game successfully removed from cart.');
+    return cart;
+  } else {
+    inform('Game could not be found. No action was taken');
+    return cart;
+  };
+}
   
   module.exports = {
     create,
@@ -90,5 +115,8 @@ function edit(games, gameId, updatedGame) {
     show,
     destroy,
     edit,
-    rate
+    rate,
+    cartList,
+    add,
+    remove
   };
