@@ -32,6 +32,7 @@ function emptyCart(cart){
 }
 
 function getCartTotal(cart){
+    inform(cartList(cart));
     return `Current total: $${((cart.reduce((acc,game)=> {
         acc += game.priceInCents
         return acc

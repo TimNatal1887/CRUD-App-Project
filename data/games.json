@@ -19,5 +19,27 @@
     "priceInCents": 4000,
     "releaseYear": 2008,
     "reviewScore": null
+  },
+  {
+    "title": "Elden Ring",
+    "id": "Vkao",
+    "platform": [
+      "PlayStation",
+      "PC"
+    ],
+    "priceInCents": 4900,
+    "releaseYear": 2002,
+    "reviewScore": "No user rating yet"
+  },
+  {
+    "title": "Drift",
+    "id": "wwlz",
+    "platform": [
+      "Nintendo Switch",
+      "PC"
+    ],
+    "priceInCents": 7400,
+    "releaseYear": 2017,
+    "reviewScore": 3.8
   }
 ]

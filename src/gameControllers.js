@@ -1,6 +1,7 @@
 const { customAlphabet } = require('nanoid');
 const _ = require("lodash")
 const {alphanumeric} = require("nanoid-dictionary")
+
 const generatePlatforms = (platforms) => {
     let platformList = []
     for(let i = 0; i < _.random(1,4);i++){
@@ -9,7 +10,6 @@ const generatePlatforms = (platforms) => {
             platformList.push(randomPlatform)
         }
     }
-    console.log(platformList);
     return platformList
 }
 
