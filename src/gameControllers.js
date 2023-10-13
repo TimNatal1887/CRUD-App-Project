@@ -36,7 +36,25 @@ function create(games, gameName) {
     return `ID: ${game.id} | Title: ${game.title} | Price: $${(game.priceInCents/100).toFixed(2)}. Released on ${game.releaseYear}. Available on ${platforms}.`|| `Game with ID of ${gameID} could not be found.`
   };
 
-  
+const inform = console.log;
+
+function edit(games, gameId, updatedGame) {
+    const index = games.findIndex((game) => game.id === gameId);
+    if (index > -1) {
+      games[index].title = updatedGame
+      games[index].id = gameId;
+      games[index].platform = games[index].platform
+      games[index].priceInCents = games[index].price
+      games[index].rate = games[index].rate
+      inform('Game successfully updated');
+      return games;
+    } else {
+      inform('Game could not be found. No action was taken');
+      return games;
+    };
+  };
+
+
   module.exports = {
     create,
     index,
