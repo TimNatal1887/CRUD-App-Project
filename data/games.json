@@ -10,7 +10,7 @@
     ],
     "priceInCents": 7000,
     "releaseYear": 2009,
-    "reviewScore": 10
+    "reviewScore": 9
   },
   {
     "title": "Garry's Mod",
@@ -21,6 +21,17 @@
     ],
     "priceInCents": 8900,
     "releaseYear": 2022,
+    "reviewScore": null
+  },
+  {
+    "title": "Jak and Daxter: The Precursor Legacy",
+    "id": "MVFd",
+    "platform": [
+      "Xbox",
+      "PlayStation"
+    ],
+    "priceInCents": 1000,
+    "releaseYear": 1994,
     "reviewScore": null
   }
 ]

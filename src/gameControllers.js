@@ -57,7 +57,7 @@ function edit(games, gameId, updatedGame) {
       games[index].id = gameId;
       games[index].platform = games[index].platform
       games[index].priceInCents = games[index].priceInCents
-      games[index].rate = games[index].rate
+      games[index].reviewScore = games[index].reviewScore
       inform('Game successfully updated');
       return games;
     } else {
@@ -66,9 +66,23 @@ function edit(games, gameId, updatedGame) {
     };
   };
 
-  function rate(animals) {
-    return animals.reduce((acc, current) => acc + current.points, 0);
-  };
+  function rate(games,gameId,rating) {
+    const index = games.findIndex((game) => game.id === gameId);
+    if(!(rating > 0 && rating <= 10)){
+      return 'Rating must be between 1 and 10!'
+    }else if (index > -1) {
+      games[index].title = games[index].title
+      games[index].id = gameId;
+      games[index].platform = games[index].platform
+      games[index].priceInCents = games[index].priceInCents
+      games[index].reviewScore = +rating
+      inform(`Rating of ${games[index].title} has successfully been updated!`)
+      return games
+    }else{
+      inform("Game could not be found!")
+      return games
+    }
+}
   
   module.exports = {
     create,

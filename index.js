@@ -37,7 +37,8 @@ function run() {
       writeToFile = true;
       break;
     case 'rate':
-      inform(`Game rating of ${process.argv[4]} to ${game}.`);
+      updatedGames = rate(games,game,process.argv[4]);
+      writeToFile = true
       break;
     default:
       inform('There was an error.');
