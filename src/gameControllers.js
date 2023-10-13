@@ -26,6 +26,10 @@ function create(games, gameName) {
     return games;
   };
 
+  function index(games) {
+    return games.map((game) => `ID: ${game.id} | Title: ${game.title} | Price: $${(game.priceInCents/100).toFixed(2)}`).join('\n');
+  };
+
   module.exports = {
     create,
     index,
