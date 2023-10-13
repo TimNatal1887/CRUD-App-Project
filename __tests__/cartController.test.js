@@ -1,4 +1,4 @@
-const {add,remove,checkout,emptyCart,cartList} = require('../src/cartController')
+const {add,remove,checkout,emptyCart,cartList, getCartTotal} = require('../src/cartController')
 
 
 describe("cartController",()=>{
@@ -180,6 +180,47 @@ describe("cartController",()=>{
               expect(actual).toEqual(expected);
         });
     });
+
+    describe("getCartTotal()",()=>{
+        it("should correctly add up the total of all items in the cart",()=>{
+            const cart = [
+                {
+                  "title": "Call of Duty",
+                  "id": "BV6i",
+                  "platform": [
+                    "Xbox",
+                    "PlayStation"
+                  ],
+                  "priceInCents": 9800,
+                  "releaseYear": 2010,
+                  "reviewScore": 7
+                },
+                {
+                  "title": "Jak and Daxter",
+                  "id": "ppQb",
+                  "platform": [
+                    "Xbox"
+                  ],
+                  "priceInCents": 4000,
+                  "releaseYear": 2008,
+                  "reviewScore": null
+                },
+                {
+                  "title": "Jak and Daxter",
+                  "id": "ppQb",
+                  "platform": [
+                    "Xbox"
+                  ],
+                  "priceInCents": 4000,
+                  "releaseYear": 2008,
+                  "reviewScore": null
+                }
+              ];
+            const actual = getCartTotal(cart);
+            const expected = "Current total: $178.00";
+            expect(actual).toEqual(expected);
+        })
+    })
 
     describe("emptyCart()",()=>{
         it("should empty the cart completely",()=>{

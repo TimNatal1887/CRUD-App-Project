@@ -31,6 +31,13 @@ function emptyCart(cart){
   return cart
 }
 
+function getCartTotal(cart){
+    return `Current total: $${((cart.reduce((acc,game)=> {
+        acc += game.priceInCents
+        return acc
+        },0))/100).toFixed(2)}`
+}
+
 function checkout(cart){
   if(!cart[0]){
     return 'Cart is empty.'
@@ -45,4 +52,4 @@ function checkout(cart){
 
 }
 
-module.exports = {add,remove,cartList,emptyCart,checkout}
+module.exports = {add,remove,cartList,emptyCart,getCartTotal,checkout}

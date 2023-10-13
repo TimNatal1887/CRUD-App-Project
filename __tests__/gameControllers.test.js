@@ -1,9 +1,20 @@
-const {create,index,show,destroy,edit,rate,} = require('../src/gameControllers');
+const {create,index,show,destroy,edit,rate,generatePlatforms} = require('../src/gameControllers');
 const _ = require("lodash");
 const {alphanumeric} = require("nanoid-dictionary");
 
 
 describe("gameController",()=>{
+
+    describe("generatePlatforms()",()=>{
+      it("should not list duplicate platforms when creating the platforms array",() =>{
+        const platforms = ["Xbox","Playstation","PC","Nintendo Switch"]
+        const input = "Minecraft"
+        const outcome = generatePlatforms(platforms)
+        const actual = outcome.every(platform => outcome.lastIndexOf(platform) === outcome.indexOf(platform))
+        const expected = true
+        expect(actual).toEqual(expected);
+      })
+    })
     describe("create()",()=>{
         it("should create a games object with a title key that has the inputted name",()=>{
             const games = [];
@@ -12,15 +23,6 @@ describe("gameController",()=>{
             const expected = "Kingdom Hearts";
             expect(actual).toEqual(expected);
         });
-
-        it("should not list duplicate platforms when creating the platforms array",() =>{
-          const games = [];
-          const input = "Minecraft"
-          const outcome = create(games,input)[0].platform;
-          const actual = outcome.every(platform => outcome.lastIndexOf(platform) === outcome.indexOf(platform))
-          const expected = true
-          expect(actual).toEqual(expected);
-        })
 
         it("should return null if a game with the given name is already in the list",()=>{
           const games = [

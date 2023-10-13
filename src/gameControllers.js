@@ -1,6 +1,17 @@
 const { customAlphabet } = require('nanoid');
 const _ = require("lodash")
 const {alphanumeric} = require("nanoid-dictionary")
+const generatePlatforms = (platforms) => {
+    let platformList = []
+    for(let i = 0; i < _.random(1,4);i++){
+        const randomPlatform = platforms[_.random(0,3)]
+        if(!platformList.includes(randomPlatform)){
+            platformList.push(randomPlatform)
+        }
+    }
+    console.log(platformList);
+    return platformList
+}
 
 function create(games, gameName,rating) {
     const foundGame = games.find(game => game.title === gameName)
@@ -8,21 +19,11 @@ function create(games, gameName,rating) {
         return null
     }
     const platforms = ["Xbox","PlayStation","PC","Nintendo Switch"]
-    const generatePlatforms = () => {
-        let platformList = []
-        for(let i = 0; i < _.random(1,4);i++){
-            const randomPlatform = platforms[_.random(0,3)]
-            if(!platformList.includes(randomPlatform)){
-                platformList.push(randomPlatform)
-            }
-        }
-        return platformList
-    }
     const randomId = customAlphabet(alphanumeric,4)
     const game = { 
         title: gameName, 
         id: randomId(),
-        platform: generatePlatforms(),
+        platform: generatePlatforms(platforms),
         priceInCents: Math.floor(_.random(1000,10000)/100)*100,
         releaseYear: _.random(1990,2023),
         reviewScore: +rating|| 'No user rating yet'
@@ -100,4 +101,5 @@ function edit(games, gameId, updatedGame) {
     destroy,
     edit,
     rate,
+    generatePlatforms
   };
