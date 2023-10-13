@@ -1,7 +1,7 @@
 const { readJSONFile, writeJSONFile } = require('./src/helpers');
 const games = readJSONFile('./data', 'games.json');
 const cart = readJSONFile('./data', 'userCart.json')
-const {create,index,show,destroy,edit,rate,cartList,add,remove,checkout} = require('./src/gameControllers')
+const {create,index,show,destroy,edit,rate,cartList,add,remove,checkout,emptyCart} = require('./src/gameControllers')
 
 const inform = console.log;
 
@@ -19,7 +19,7 @@ function run() {
       inform(gamesView);
       break;
     case 'create':
-      updatedGames = create(games,game);
+      updatedGames = create(games,game,process.argv[4]);
       if(updatedGames){
         inform(`${game} has been added to your library.`)
         writeToFile = true;
@@ -57,6 +57,14 @@ function run() {
         break;
     case 'checkout':
         inform(checkout(cart));
+        inform('\n')
+        emptyCart(cart)
+        changeCart = true
+        break;
+    case "empty":
+        updatedCart = emptyCart(cart);
+        changeCart = true
+        inform('Cart is now empty.')
         break;
     default:
       inform('There was an error.');

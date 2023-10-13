@@ -8,11 +8,11 @@
     ],
     "priceInCents": 9800,
     "releaseYear": 2010,
-    "reviewScore": null
+    "reviewScore": 7
   },
   {
     "title": "Jak and Daxter",
-    "id": "-pQb",
+    "id": "ppQb",
     "platform": [
       "Xbox"
     ],
@@ -28,6 +28,58 @@
     ],
     "priceInCents": 7900,
     "releaseYear": 2022,
-    "reviewScore": null
+    "reviewScore": 8
+  },
+  {
+    "title": "The Sims",
+    "id": "geBc",
+    "platform": [
+      "Xbox"
+    ],
+    "priceInCents": 7200,
+    "releaseYear": 2020,
+    "reviewScore": 10
+  },
+  {
+    "title": "Roblox",
+    "id": "r2Tp",
+    "platform": [
+      "Nintendo Switch"
+    ],
+    "priceInCents": 1400,
+    "releaseYear": 2013,
+    "reviewScore": 3
+  },
+  {
+    "title": "Wizard101",
+    "id": "L2mS",
+    "platform": [
+      "Nintendo Switch"
+    ],
+    "priceInCents": 5300,
+    "releaseYear": 2020,
+    "reviewScore": 6
+  },
+  {
+    "title": "Tarzan",
+    "id": "IOsz",
+    "platform": [
+      "Xbox",
+      "PlayStation",
+      "PC"
+    ],
+    "priceInCents": 1200,
+    "releaseYear": 2011,
+    "reviewScore": 6
+  },
+  {
+    "title": "Phasmophobia",
+    "id": "X6Jg",
+    "platform": [
+      "PC"
+    ],
+    "priceInCents": 2100,
+    "releaseYear": 1995,
+    "reviewScore": "No user rating yet"
   }
 ]

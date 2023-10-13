@@ -2,7 +2,7 @@
 
 In this app, a user will be able to:
 
-- Add a video game with details such as name, priceInCents, inStock, platform (e.g., PC, PS5, Xbox), genre, reviews and releaseYear.
+- Add a video game with details such as name, priceInCents, inStock, platform (PC, PS5, Xbox, and Nintendo Switch), genre, reviews and releaseYear.
 - Update existing video game details.
 - Delete a video game from their library.
 - List all available video games.

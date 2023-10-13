@@ -1,7 +1,8 @@
-const {nanoid} = require('nanoid');
+const { customAlphabet } = require('nanoid');
 const _ = require("lodash")
+const {alphanumeric} = require("nanoid-dictionary")
 
-function create(games, gameName) {
+function create(games, gameName,rating) {
     const foundGame = games.find(game => game.title === gameName)
     if(foundGame){
         return null
@@ -10,17 +11,21 @@ function create(games, gameName) {
     const generatePlatforms = () => {
         let platformList = []
         for(let i = 0; i < _.random(1,4);i++){
-            platformList.push(platforms[i])
+            const randomPlatform = platforms[_.random(0,3)]
+            if(!platformList.includes(randomPlatform)){
+                platformList.push(randomPlatform)
+            }
         }
         return platformList
     }
+    const randomId = customAlphabet(alphanumeric,4)
     const game = { 
         title: gameName, 
-        id: nanoid(4),
+        id: randomId(),
         platform: generatePlatforms(),
         priceInCents: Math.floor(_.random(1000,10000)/100)*100,
         releaseYear: _.random(1990,2023),
-        reviewScore: null
+        reviewScore: +rating|| 'No user rating yet'
      };
     games.push(game);
     return games;
@@ -32,8 +37,8 @@ function create(games, gameName) {
 
   function show(games, gameId) {
     const game = games.find((game) => game.id === gameId);
-    const platforms = game.platform.reduce((acc,platform) => game.platform.indexOf(platform) === game.platform.length - 1 ? acc+= `and ${platform}`:acc += `${platform}, `,'')
-    return `ID: ${game.id} | Title: ${game.title} | Price: $${(game.priceInCents/100).toFixed(2)}. Released on ${game.releaseYear}. Available on ${platforms}.`|| `Game with ID of ${gameID} could not be found.`
+    const platforms = game.platform.reduce((acc,platform) => game.platform.length === 1 ? acc+= platform: game.platform.indexOf(platform) === game.platform.length - 1 ? acc += `and ${platform}`:acc += `${platform}, `,'')
+    return `ID: ${game.id} | Title: ${game.title} | Price: $${(game.priceInCents/100).toFixed(2)}. Released in ${game.releaseYear}. Available on ${platforms}.`|| `Game with ID of ${gameID} could not be found.`
   };
 
 const inform = console.log;
@@ -109,14 +114,23 @@ function remove(games,gameId,cart){
   };
 }
 
+function emptyCart(cart){
+  cart = []
+  return cart
+}
+
 function checkout(cart){
-    const thankYou = "Thank you for shoppiing with us! Here is your receipt \n------------------------\n"
+  if(!cart[0]){
+    return 'Cart is empty.'
+  }
+    const thankYou = "Thank you for shopping with us! Here is your receipt \n------------------------\n"
     const gameList = cartList(cart);
     const totalPrice = ((cart.reduce((acc,game)=> {
         acc += game.priceInCents
         return acc
     },0))/100).toFixed(2)
-    return thankYou + gameList + `\n------------------------\nTOTAL: $${totalPrice}`
+    return thankYou + gameList + `\n------------------------\nTOTAL: $${totalPrice} \n\nCart is now empty.`
+
 }
 
   
@@ -130,5 +144,6 @@ function checkout(cart){
     cartList,
     add,
     remove,
-    checkout
+    checkout,
+    emptyCart
   };
