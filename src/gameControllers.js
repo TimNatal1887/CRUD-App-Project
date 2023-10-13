@@ -37,8 +37,11 @@ function create(games, gameName,rating) {
 
   function show(games, gameId) {
     const game = games.find((game) => game.id === gameId);
+    if(!game){
+      return `Game with ID of ${gameId} could not be found.`
+    }
     const platforms = game.platform.reduce((acc,platform) => game.platform.length === 1 ? acc+= platform: game.platform.indexOf(platform) === game.platform.length - 1 ? acc += `and ${platform}`:acc += `${platform}, `,'')
-    return `ID: ${game.id} | Title: ${game.title} | Price: $${(game.priceInCents/100).toFixed(2)}. Released in ${game.releaseYear}. Available on ${platforms}.`|| `Game with ID of ${gameID} could not be found.`
+    return `ID: ${game.id} | Title: ${game.title} | Price: $${(game.priceInCents/100).toFixed(2)}. Released in ${game.releaseYear}. Available on ${platforms}.`
   };
 
 const inform = console.log;
@@ -74,7 +77,8 @@ function edit(games, gameId, updatedGame) {
   function rate(games,gameId,rating) {
     const index = games.findIndex((game) => game.id === gameId);
     if(!(rating > 0 && rating <= 10)){
-      return 'Rating must be between 1 and 10!'
+      inform('Rating must be between 1 and 10!')
+      return games
     }else if (index > -1) {
       games[index].title = games[index].title
       games[index].id = gameId;
@@ -87,52 +91,7 @@ function edit(games, gameId, updatedGame) {
       inform("Game could not be found!")
       return games
     }
-}
-function cartList(cart){
-    return cart.map(game => `${game.title}, Price: $${(game.priceInCents/100).toFixed(2)}`).join('\n')
-}
-function add(games,gameId,cart){
-    const gameFound = games.find(game=> game.id === gameId);
-    if(!gameFound){
-      inform(`Game with ID of ${gameId} could not be found`)
-      return cart
-    }else{
-      cart.push(gameFound)
-      return cart
-    };
-};
-
-function remove(games,gameId,cart){
-  const index = games.findIndex((game) => game.id === gameId);
-  if (index > -1) {
-    cart.splice(index, 1);
-    inform('Game successfully removed from cart.');
-    return cart;
-  } else {
-    inform('Game could not be found. No action was taken');
-    return cart;
   };
-}
-
-function emptyCart(cart){
-  cart = []
-  return cart
-}
-
-function checkout(cart){
-  if(!cart[0]){
-    return 'Cart is empty.'
-  }
-    const thankYou = "Thank you for shopping with us! Here is your receipt \n------------------------\n"
-    const gameList = cartList(cart);
-    const totalPrice = ((cart.reduce((acc,game)=> {
-        acc += game.priceInCents
-        return acc
-    },0))/100).toFixed(2)
-    return thankYou + gameList + `\n------------------------\nTOTAL: $${totalPrice} \n\nCart is now empty.`
-
-}
-
   
   module.exports = {
     create,
@@ -141,9 +100,4 @@ function checkout(cart){
     destroy,
     edit,
     rate,
-    cartList,
-    add,
-    remove,
-    checkout,
-    emptyCart
   };
