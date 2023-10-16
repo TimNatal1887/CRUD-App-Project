@@ -1,4 +1,7 @@
-const {convertToDollars} = require('./helpers')
+function convertToDollars(num){
+  num /= 100
+  return num.toFixed(2)
+};
 
 const inform = console.log;
 
@@ -58,4 +61,4 @@ function checkout(cart){
 
 }
 
-module.exports = {add,remove,emptyCart,getCartTotal,checkout}
+module.exports = {add,remove,emptyCart,getCartTotal,checkout,convertToDollars}

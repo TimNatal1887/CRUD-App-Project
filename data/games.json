@@ -117,5 +117,17 @@
     "priceInCents": 2400,
     "releaseYear": 2011,
     "reviewScore": "No user rating yet"
+  },
+  {
+    "title": "Starfield",
+    "id": "9zfl",
+    "platform": [
+      "PC",
+      "Xbox",
+      "Nintendo Switch"
+    ],
+    "priceInCents": 8200,
+    "releaseYear": 2017,
+    "reviewScore": "No user rating yet"
   }
 ]
