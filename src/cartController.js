@@ -1,9 +1,6 @@
-const inform = console.log;
+const {convertToDollars} = require('./helpers')
 
-function convertToDollars(num){
-  num /= 100
-  return num.toFixed(2)
-}
+const inform = console.log;
 
 function cartList(cart){
     return cart.map(game => `${game.title}, Price: $${convertToDollars(game.priceInCents)}`).join('\n')
@@ -61,4 +58,4 @@ function checkout(cart){
 
 }
 
-module.exports = {add,remove,convertToDollars,emptyCart,getCartTotal,checkout}
+module.exports = {add,remove,emptyCart,getCartTotal,checkout}

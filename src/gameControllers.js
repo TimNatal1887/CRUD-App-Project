@@ -1,7 +1,7 @@
 const { customAlphabet } = require('nanoid');
 const _ = require("lodash");
 const {alphanumeric} = require("nanoid-dictionary");
-const {convertToDollars} = require('./cartController')
+const {convertToDollars} = require('./helpers')
 
 const platforms = ["Xbox","PlayStation","PC","Nintendo Switch"]
 

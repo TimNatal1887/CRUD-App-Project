@@ -10,7 +10,13 @@ function writeJSONFile(path, fileName, data) {
   return writeFileSync(`${path}/${fileName}`, data, { encoding: 'utf-8' });
 }
 
+function convertToDollars(num){
+  num /= 100
+  return num.toFixed(2)
+}
+
 module.exports = {
   readJSONFile,
-  writeJSONFile
+  writeJSONFile,
+  convertToDollars
 };
