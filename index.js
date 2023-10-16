@@ -2,7 +2,7 @@ const { readJSONFile, writeJSONFile } = require('./src/helpers');
 const games = readJSONFile('./data', 'games.json');
 const cart = readJSONFile('./data', 'userCart.json')
 const {create,index,show,destroy,edit,rate} = require('./src/gameControllers')
-const {add,remove,emptyCart,cartList,checkout, getCartTotal} = require('./src/cartController')
+const {add,remove,emptyCart,checkout, getCartTotal} = require('./src/cartController')
 
 const inform = console.log;
 
@@ -43,10 +43,6 @@ function run() {
     case 'rate':
       updatedGames = rate(games,game,process.argv[4]);
       writeToFile = true
-      break;
-    case "cart":
-      const cartView = cartList(cart);
-      inform(cartView)
       break;
     case 'add':
       updatedCart = add(games,game,cart);

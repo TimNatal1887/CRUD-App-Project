@@ -1,7 +1,12 @@
 const inform = console.log;
 
+function convertToDollars(num){
+  num /= 100
+  return num.toFixed(2)
+}
+
 function cartList(cart){
-    return cart.map(game => `${game.title}, Price: $${(game.priceInCents/100).toFixed(2)}`).join('\n')
+    return cart.map(game => `${game.title}, Price: $${convertToDollars(game.priceInCents)}`).join('\n')
 }
 function add(games,gameId,cart){
     const gameFound = games.find(game=> game.id === gameId);
@@ -10,6 +15,7 @@ function add(games,gameId,cart){
       return cart
     }else{
       cart.push(gameFound)
+      inform(`${gameFound.title} has been added to your cart.`)
       return cart
     };
 };
@@ -32,11 +38,13 @@ function emptyCart(cart){
 }
 
 function getCartTotal(cart){
-    inform(cartList(cart));
-    return `Current total: $${((cart.reduce((acc,game)=> {
-        acc += game.priceInCents
-        return acc
-        },0))/100).toFixed(2)}`
+    inform('Games in your cart:' + '\n\n' + cartList(cart));
+    const total = cart.reduce((acc,game)=> {
+      acc += game.priceInCents
+      return acc
+      },0)
+    
+    return `\nCurrent total: $${convertToDollars(total)}`
 }
 
 function checkout(cart){
@@ -45,12 +53,12 @@ function checkout(cart){
   }
     const thankYou = "Thank you for shopping with us! Here is your receipt \n------------------------\n"
     const gameList = cartList(cart);
-    const totalPrice = ((cart.reduce((acc,game)=> {
-        acc += game.priceInCents
-        return acc
-    },0))/100).toFixed(2)
-    return thankYou + gameList + `\n------------------------\nTOTAL: $${totalPrice}\n\nCart is now empty.`
+    const totalPrice = cart.reduce((acc,game)=> {
+      acc += game.priceInCents
+      return acc
+      },0)
+    return thankYou + gameList + `\n------------------------\nTOTAL: $${convertToDollars(totalPrice)}\n\nCart is now empty.`
 
 }
 
-module.exports = {add,remove,cartList,emptyCart,getCartTotal,checkout}
+module.exports = {add,remove,convertToDollars,emptyCart,getCartTotal,checkout}

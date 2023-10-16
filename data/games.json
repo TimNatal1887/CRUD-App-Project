@@ -1,45 +1,121 @@
 [
   {
-    "title": "Call of Duty",
-    "id": "BV6i",
+    "title": "Don't Starve",
+    "id": "43pb",
     "platform": [
       "Xbox",
-      "PlayStation"
-    ],
-    "priceInCents": 9800,
-    "releaseYear": 2010,
-    "reviewScore": 7
-  },
-  {
-    "title": "Jak and Daxter",
-    "id": "ppQb",
-    "platform": [
-      "Xbox"
-    ],
-    "priceInCents": 4000,
-    "releaseYear": 2008,
-    "reviewScore": null
-  },
-  {
-    "title": "Elden Ring",
-    "id": "Vkao",
-    "platform": [
-      "PlayStation",
+      "Nintendo Switch",
       "PC"
     ],
-    "priceInCents": 4900,
-    "releaseYear": 2002,
+    "priceInCents": 1400,
+    "releaseYear": 2011,
     "reviewScore": "No user rating yet"
   },
   {
-    "title": "Drift",
-    "id": "wwlz",
+    "title": "The Sims",
+    "id": "C6xF",
+    "platform": [
+      "PlayStation"
+    ],
+    "priceInCents": 7400,
+    "releaseYear": 2016,
+    "reviewScore": 8.2
+  },
+  {
+    "title": "StardewValley",
+    "id": "VJgM",
+    "platform": [
+      "Xbox",
+      "PC"
+    ],
+    "priceInCents": 2500,
+    "releaseYear": 2023,
+    "reviewScore": "No user rating yet"
+  },
+  {
+    "title": "Phasmophobia",
+    "id": "02mZ",
+    "platform": [
+      "PC"
+    ],
+    "priceInCents": 5100,
+    "releaseYear": 1999,
+    "reviewScore": "No user rating yet"
+  },
+  {
+    "title": "NBA2K24",
+    "id": "ydxc",
+    "platform": [
+      "Xbox",
+      "PlayStation",
+      "Nintendo Switch"
+    ],
+    "priceInCents": 5200,
+    "releaseYear": 2006,
+    "reviewScore": "No user rating yet"
+  },
+  {
+    "title": "FIFA",
+    "id": "FQ1J",
     "platform": [
       "Nintendo Switch",
       "PC"
     ],
-    "priceInCents": 7400,
-    "releaseYear": 2017,
-    "reviewScore": 3.8
+    "priceInCents": 7500,
+    "releaseYear": 2016,
+    "reviewScore": 24
+  },
+  {
+    "title": "The Binding of Isaac",
+    "id": "T6MP",
+    "platform": [
+      "Nintendo Switch"
+    ],
+    "priceInCents": 4800,
+    "releaseYear": 2006,
+    "reviewScore": "No user rating yet"
+  },
+  {
+    "title": "Dead by Daylight",
+    "id": "w9fN",
+    "platform": [
+      "PlayStation",
+      "Nintendo Switch",
+      "Xbox"
+    ],
+    "priceInCents": 3600,
+    "releaseYear": 2009,
+    "reviewScore": "No user rating yet"
+  },
+  {
+    "title": "Wizard101",
+    "id": "0I9R",
+    "platform": [
+      "Xbox"
+    ],
+    "priceInCents": 1600,
+    "releaseYear": 1996,
+    "reviewScore": "No user rating yet"
+  },
+  {
+    "title": "Super Mario",
+    "id": "RXoe",
+    "platform": [
+      "PC",
+      "PlayStation"
+    ],
+    "priceInCents": 3600,
+    "releaseYear": 1999,
+    "reviewScore": "No user rating yet"
+  },
+  {
+    "title": "Sonic 2",
+    "id": "4I2m",
+    "platform": [
+      "Xbox"
+    ],
+    "priceInCents": 2400,
+    "releaseYear": 2011,
+    "reviewScore": "No user rating yet"
   }
 ]

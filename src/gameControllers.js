@@ -1,6 +1,9 @@
 const { customAlphabet } = require('nanoid');
-const _ = require("lodash")
-const {alphanumeric} = require("nanoid-dictionary")
+const _ = require("lodash");
+const {alphanumeric} = require("nanoid-dictionary");
+const {convertToDollars} = require('./cartController')
+
+const platforms = ["Xbox","PlayStation","PC","Nintendo Switch"]
 
 const generatePlatforms = (platforms) => {
     let platformList = []
@@ -15,11 +18,12 @@ const generatePlatforms = (platforms) => {
 }
 
 function create(games, gameName,rating) {
-    const foundGame = games.find(game => game.title === gameName)
+    
+  const foundGame = games.find(game => game.title === gameName)
     if(foundGame){
         return null
     }
-    const platforms = ["Xbox","PlayStation","PC","Nintendo Switch"]
+
     const randomId = customAlphabet(alphanumeric,4)
     const game = { 
         title: gameName, 
@@ -29,12 +33,13 @@ function create(games, gameName,rating) {
         releaseYear: _.random(1990,2023),
         reviewScore: +rating|| 'No user rating yet'
      };
+
     games.push(game);
     return games;
   };
 
   function index(games) {
-    return games.map((game) => `ID: ${game.id} | Title: ${game.title} | Price: $${(game.priceInCents/100).toFixed(2)}`).join('\n');
+    return games.map((game) => `ID: ${game.id} | Title: ${game.title} | Price: $${convertToDollars(game.priceInCents)}`).join('\n');
   };
 
   function show(games, gameId) {
@@ -43,7 +48,7 @@ function create(games, gameName,rating) {
       return `Game with ID of ${gameId} could not be found.`
     }
     const platforms = game.platform.reduce((acc,platform) => game.platform.length === 1 ? acc+= platform: game.platform.indexOf(platform) === game.platform.length - 1 ? acc += `and ${platform}`:acc += `${platform}, `,'')
-    return `ID: ${game.id} | Title: ${game.title} | Price: $${(game.priceInCents/100).toFixed(2)}. Released in ${game.releaseYear}. Available on ${platforms}.`
+    return `ID: ${game.id} | Title: ${game.title} | Price: $${convertToDollars(game.priceInCents)}. Released in ${game.releaseYear}. Available on ${platforms}.`
   };
 
 const inform = console.log;

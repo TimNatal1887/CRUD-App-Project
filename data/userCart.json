@@ -1,0 +1,33 @@
+[
+    {
+      "title": "Call of Duty",
+      "id": "BV6i",
+      "platform": [
+        "Xbox",
+        "PlayStation"
+      ],
+      "priceInCents": 9800,
+      "releaseYear": 2010,
+      "reviewScore": 7
+    },
+    {
+      "title": "Jak and Daxter",
+      "id": "ppQb",
+      "platform": [
+        "Xbox"
+      ],
+      "priceInCents": 4000,
+      "releaseYear": 2008,
+      "reviewScore": null
+    },
+    {
+      "title": "Jak and Daxter",
+      "id": "ppQb",
+      "platform": [
+        "Xbox"
+      ],
+      "priceInCents": 4000,
+      "releaseYear": 2008,
+      "reviewScore": null
+    }
+  ]

@@ -4,17 +4,23 @@ const {alphanumeric} = require("nanoid-dictionary");
 
 
 describe("gameController",()=>{
+  
+  describe("generatePlatforms()",()=>{
+    it("should not list duplicate platforms when creating the platforms array",() =>{
+        _.random = jest.fn();
+        const platforms = ["Xbox","Playstation","Switch","PC"];
+        _.random.mockReturnValueOnce(4);
+        _.random.mockReturnValueOnce(1);
+        _.random.mockReturnValueOnce(1);
+        _.random.mockReturnValueOnce(2);
+        _.random.mockReturnValueOnce(2);
+        
+        const actual = generatePlatforms(platforms);
+        const expected = actual.filter((platform,index,self)=> self.indexOf(platform) === index).length;
+        expect(actual.length).toEqual(expected);
+      });
+    });
 
-    describe("generatePlatforms()",()=>{
-      it("should not list duplicate platforms when creating the platforms array",() =>{
-        const platforms = ["Xbox","Playstation","PC","Nintendo Switch"]
-        const input = "Minecraft"
-        const outcome = generatePlatforms(platforms)
-        const actual = outcome.every(platform => outcome.lastIndexOf(platform) === outcome.indexOf(platform))
-        const expected = true
-        expect(actual).toEqual(expected);
-      })
-    })
     describe("create()",()=>{
         it("should create a games object with a title key that has the inputted name",()=>{
             const games = [];
